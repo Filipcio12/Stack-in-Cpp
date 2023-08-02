@@ -31,3 +31,21 @@ void Stack::push(int element)
     }
     data[top++] = element;
 }
+
+int Stack::pop()
+{
+    if (top > 0) {
+        return data[--top];
+    }
+    free(data);
+    fprintf(stderr, "Can't pop from an empty stack.");
+    abort();
+}
+
+bool Stack::isEmpty()
+{
+    if (top > 0) {
+        return 0;
+    }
+    return 1;
+}
