@@ -7,6 +7,22 @@ Stack::Stack()
     data = NULL;
 }
 
+// copy constructor
+Stack::Stack(Stack* s)
+{
+    data = (int*)malloc(s->size * sizeof(int));
+    if (!data) {
+        free(s->data);
+        fprintf(stderr, "Can't copy stack.\n");
+        abort();
+    }
+    top = s->top;
+    size = s->size;
+    for (size_t i = 0; i < size; i++) {
+        data[i] = s->data[i];
+    }
+}
+
 Stack::~Stack()
 {
     free(data);
@@ -18,6 +34,7 @@ void Stack::incrementSize()
     int* newData = (int*)realloc(data, newSize * sizeof(int));
     if (!newData) {
         free(data);
+        fprintf(stderr, "Can't allocate sufficient memory.\n");
         abort();
     }
     data = newData;

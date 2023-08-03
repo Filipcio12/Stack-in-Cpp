@@ -15,6 +15,9 @@ class Stack {
         bool isEmpty();
         ~Stack();
 
+        // copy constructor
+        Stack(Stack* s);
+
     private:
         void incrementSize();
 };
