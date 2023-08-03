@@ -61,8 +61,5 @@ int Stack::pop()
 
 bool Stack::isEmpty()
 {
-    if (top > 0) {
-        return 0;
-    }
-    return 1;
+    return (top == 0);
 }
