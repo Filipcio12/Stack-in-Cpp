@@ -23,6 +23,26 @@ Stack::Stack(const Stack &s)
     }
 }
 
+// assignment operator
+Stack& Stack::operator=(const Stack& s)
+{
+    if (s.size > size) {
+        int* newData = (int*)realloc(data, s.size * sizeof(int));
+        if (!newData) {
+            free(data);
+            fprintf(stderr, "Can't allocate sufficient memory.\n");
+            abort();
+        }
+        data = newData;
+        size = s.size;
+    }
+    for (size_t i = 0; i < s.size; i++) {
+        data[i] = s.data[i];
+    }
+    top = s.top;
+    return *this;
+}
+
 Stack::~Stack()
 {
     free(data);

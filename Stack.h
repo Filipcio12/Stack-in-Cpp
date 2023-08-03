@@ -18,6 +18,9 @@ class Stack {
         // copy constructor
         Stack(const Stack& s);
 
+        // assignment operator
+        Stack& operator=(const Stack& s);
+
     private:
         void incrementSize();
 };
