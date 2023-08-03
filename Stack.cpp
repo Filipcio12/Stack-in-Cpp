@@ -38,7 +38,7 @@ int Stack::pop()
         return data[--top];
     }
     free(data);
-    fprintf(stderr, "Can't pop from an empty stack.");
+    fprintf(stderr, "Can't pop from an empty stack.\n");
     abort();
 }
 
