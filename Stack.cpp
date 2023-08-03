@@ -8,18 +8,18 @@ Stack::Stack()
 }
 
 // copy constructor
-Stack::Stack(Stack* s)
+Stack::Stack(const Stack &s)
 {
-    data = (int*)malloc(s->size * sizeof(int));
+    data = (int*)malloc(s.size * sizeof(int));
     if (!data) {
-        free(s->data);
+        free(s.data);
         fprintf(stderr, "Can't copy stack.\n");
         abort();
     }
-    top = s->top;
-    size = s->size;
+    top = s.top;
+    size = s.size;
     for (size_t i = 0; i < size; i++) {
-        data[i] = s->data[i];
+        data[i] = s.data[i];
     }
 }
 

@@ -16,7 +16,7 @@ class Stack {
         ~Stack();
 
         // copy constructor
-        Stack(Stack* s);
+        Stack(const Stack& s);
 
     private:
         void incrementSize();
